@@ -1,0 +1,105 @@
+﻿<Window x:Class="AsteroidsAtari.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsteroidsAtari"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="600" 
+        Width="900"
+        Background="Black"
+        MouseMove="Handler_MouseMove" 
+        KeyUp="Handler_KeyUp">
+
+    <Canvas x:Name="Canvas_main">
+        <Image x:Name="Image_Player" 
+                Source="{StaticResource Static_player}"
+                Height="20"
+                Canvas.Left="463"
+                Canvas.Bottom="240"
+                RenderTransformOrigin="0.5, 0.5" />
+        
+        <Image x:Name="Image_PlayerBoost" 
+                Source="{StaticResource Static_playerBoost}"
+                Height="{Binding ElementName=Image_Player, Path=Height}"
+                Canvas.Left="{Binding (Canvas.Left), ElementName=Image_Player}"
+                Canvas.Bottom="{Binding (Canvas.Bottom), ElementName=Image_Player}"
+                RenderTransformOrigin="0.5, 0.5" />
+            
+        <Image x:Name="Image_Saucer"
+                Source="{StaticResource Static_saucer}"
+                Height="25"
+                Canvas.Left="463"
+                Canvas.Bottom="240"                
+                RenderTransformOrigin="0.5, 0.5" 
+                VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+        
+
+        <Label x:Name="Label_StartFlicker" 
+                Content="Push Space"
+                Canvas.Left="360"
+                Canvas.Top="30"
+                FontSize="28"
+                FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+    
+        <Label x:Name="Label_Coin" 
+                Content="1 COIN 1 PLAY"
+                Canvas.Left="355"
+                Canvas.Top="460"
+                FontSize="22"
+                FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+                
+        <Label x:Name="Label_Score"
+                Content="00"
+                Canvas.Left="2"
+                FontSize="23"
+                FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+        
+
+        <Label x:Name="Label_Player1"
+                Content="Player 1"
+                Canvas.Left="396"
+                Canvas.Top="55"
+                FontSize="25"
+                FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+        
+        <Label x:Name="Label_Copyright"
+                Content="@1979 ATARI INC"
+                Canvas.Left="415"
+                Canvas.Top="520"
+                FontSize="10"
+                FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+        
+        <Label x:Name="Label_GameOver"
+                Content="GAME OVER"
+                Canvas.Left="350"
+                Canvas.Top="100"
+                FontSize="35"
+               FontFamily="pack://application:,,,/GameFont/VectorBattle-e9XO.ttf#Vector Battle"
+                Foreground="White" />
+
+        <Image x:Name="Image_Lives1"
+                Source="{StaticResource Static_player}"
+                Height="20"
+                Canvas.Left="18"
+                Canvas.Top="40"/>
+        <Image x:Name="Image_Lives2"
+               Source="{StaticResource Static_player}"
+                Height="20"
+                Canvas.Left="36"
+                Canvas.Top="40"/>
+        <Image x:Name="Image_Lives3"
+                Source="{StaticResource Static_player}"
+                Height="20"
+                Canvas.Left="54"
+                Canvas.Top="40"/>
+    
+    
+    </Canvas>
+</Window>
